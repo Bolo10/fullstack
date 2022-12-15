@@ -1,0 +1,10 @@
+title New Note NewAppPage
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser: HTML-code
+
+
+note over browser:
+browser starts executing js-code
+that sends new note data
+end note
