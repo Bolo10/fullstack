@@ -83,7 +83,13 @@ const App = () => {
             setNotifyMessage(null)
           }, 5000)
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          setNotifyMessage(error.response.data.error)
+          setClassMessage('error')
+          setTimeout(() => {
+            setNotifyMessage(null)
+          }, 5000)
+        })
 
       await personService
         .getAll()
