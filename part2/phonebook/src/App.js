@@ -54,7 +54,7 @@ const App = () => {
         await personService
                 .update(personFiltered[0].id, personObject)
                 .then(personUpdated => {
-                  setNotifyMessage(`Added ${personUpdated.name}`)
+                  setNotifyMessage(`Updated ${personUpdated.name}`)
                   setClassMessage('success')
                   setTimeout(() => {
                   setNotifyMessage(null)
