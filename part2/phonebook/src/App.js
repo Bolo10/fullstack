@@ -11,7 +11,7 @@ const App = () => {
   const [ persons, setPersons ] = useState([]) 
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
-  const [ filtered, setNameFiltered ] = useState('')
+  const [ filtered, setNameFiltered ] = useState([])
   const [notifyMessage, setNotifyMessage] = useState(null)
   const [classMessage, setClassMessage] = useState('')
   useEffect(() => {
@@ -22,19 +22,21 @@ const App = () => {
   }, [])
 
   const handleNameChange = (event) => {
-    console.log(event.target.value)
+    //console.log(event.target.value)
+    event.preventDefault()
     setNewName(event.target.value)
     
   }
   const handleNumberChange = (event) => {
-    console.log(event.target.value)
+    //console.log(event.target.value)
+    event.preventDefault()
     setNewNumber(event.target.value)
     
   }
   const handleFilterChange = (event) =>{
-    let nameToUpper  = event.target.value
-    console.log(typeof nameToUpper, nameToUpper)
-    const nameFiltered = persons.map(person => person.name.toUpperCase()).filter(element => element === nameToUpper.toUpperCase())
+    //console.log(typeof nameToUpper, nameToUpper)
+    const nameFiltered = persons.filter(element => element.name.toUpperCase() === event.target.value.toUpperCase())
+    console.log(nameFiltered)
     setNameFiltered(nameFiltered)
   } 
   const addPerson = async (event) => {
